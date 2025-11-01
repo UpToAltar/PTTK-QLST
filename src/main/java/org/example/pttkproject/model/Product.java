@@ -1,20 +1,20 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 public class Product {
     private String id;
     private String code;
     private String name;
     private String description;
-    private float importPrice;
+    private double importPrice;
     private String unit;
-    private float salePrice;
+    private double salePrice;
     private int quantity;
     private String category;
 
     public Product() {
     }
 
-    public Product(String id, String code, String name, String description, float importPrice, String unit, float salePrice, int quantity, String category) {
+    public Product(String id, String code, String name, String description, double importPrice, String unit, double salePrice, int quantity, String category) {
         this.id = id;
         this.code = code;
         this.name = name;
@@ -58,11 +58,11 @@ public class Product {
         this.description = description;
     }
 
-    public float getImportPrice() {
+    public double getImportPrice() {
         return importPrice;
     }
 
-    public void setImportPrice(float importPrice) {
+    public void setImportPrice(double importPrice) {
         this.importPrice = importPrice;
     }
 
@@ -74,11 +74,11 @@ public class Product {
         this.unit = unit;
     }
 
-    public float getSalePrice() {
+    public double getSalePrice() {
         return salePrice;
     }
 
-    public void setSalePrice(float salePrice) {
+    public void setSalePrice(double salePrice) {
         this.salePrice = salePrice;
     }
 

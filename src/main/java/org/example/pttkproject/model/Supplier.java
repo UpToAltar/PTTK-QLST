@@ -1,4 +1,4 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 public class Supplier {
     private String id;

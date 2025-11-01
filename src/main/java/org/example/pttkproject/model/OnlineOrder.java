@@ -1,4 +1,4 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 import java.sql.Date;
 
@@ -6,18 +6,25 @@ public class OnlineOrder {
     private String id;
     private String status;
     private Date dateTime;
-    private float totalPrice;
+    private double totalPrice;
     private String tblCustomerId;
+    private String shipAddress;
+    private String receiveName;
+    private String phone;
 
+    
     public OnlineOrder() {
     }
 
-    public OnlineOrder(String id, String status, Date dateTime, float totalPrice, String tblCustomerId) {
+    public OnlineOrder(String id, String status, Date dateTime, double totalPrice, String tblCustomerId, String shipAddress, String receiveName, String phone) {
         this.id = id;
         this.status = status;
         this.dateTime = dateTime;
         this.totalPrice = totalPrice;
         this.tblCustomerId = tblCustomerId;
+        this.shipAddress = shipAddress;
+        this.receiveName = receiveName;
+        this.phone = phone;
     }
 
     public String getId() {
@@ -44,11 +51,11 @@ public class OnlineOrder {
         this.dateTime = dateTime;
     }
 
-    public float getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -58,6 +65,30 @@ public class OnlineOrder {
 
     public void setTblCustomerId(String tblCustomerId) {
         this.tblCustomerId = tblCustomerId;
+    }
+
+    public String getShipAddress() {
+        return shipAddress;
+    }
+
+    public void setShipAddress(String shipAddress) {
+        this.shipAddress = shipAddress;
+    }
+
+    public String getReceiveName() {
+        return receiveName;
+    }
+
+    public void setReceiveName(String receiveName) {
+        this.receiveName = receiveName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
 

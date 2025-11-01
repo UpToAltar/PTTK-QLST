@@ -1,31 +1,45 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
-public class DeliveryStaff {
+import java.sql.Date;
+
+public class DeliveryStaff extends Staff {
     private String id;
-    private String tblStaffId;
 
     public DeliveryStaff() {
+        super();
     }
 
-    public DeliveryStaff(String id, String tblStaffId) {
+    public DeliveryStaff(String id) {
+        super();
         this.id = id;
-        this.tblStaffId = tblStaffId;
     }
 
+    public DeliveryStaff(String id, String staffId, String position) {
+        super(staffId, position);
+        this.id = id;
+    }
+
+    public DeliveryStaff(String id, String staffId, String position, String userId, String fullName, String userName, String password, Date birthDay, String address, String email, String phone, String role, String note) {
+        super(staffId, position, userId, fullName, userName, password, birthDay, address, email, phone, role, note);
+        this.id = id;
+    }
+
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getTblStaffId() {
-        return tblStaffId;
+    public String getStaffId() {
+        return super.getId();
     }
 
-    public void setTblStaffId(String tblStaffId) {
-        this.tblStaffId = tblStaffId;
+    public void setStaffId(String staffId) {
+        super.setId(staffId);
     }
 }
 

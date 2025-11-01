@@ -1,4 +1,4 @@
-package org.example.pttkproject.dao;
+package org.example.pttkproject.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

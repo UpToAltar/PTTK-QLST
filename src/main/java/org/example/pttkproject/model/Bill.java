@@ -1,11 +1,11 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 import java.sql.Date;
 
 public class Bill {
     private String id;
     private Date date;
-    private float totalPrice;
+    private double totalPrice;
     private String paymentMethod;
     private String tblSaleStaffId;
     private String tblCustomerId;
@@ -13,7 +13,7 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(String id, Date date, float totalPrice, String paymentMethod, String tblSaleStaffId, String tblCustomerId) {
+    public Bill(String id, Date date, double totalPrice, String paymentMethod, String tblSaleStaffId, String tblCustomerId) {
         this.id = id;
         this.date = date;
         this.totalPrice = totalPrice;
@@ -38,11 +38,11 @@ public class Bill {
         this.date = date;
     }
 
-    public float getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 

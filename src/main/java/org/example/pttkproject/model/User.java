@@ -1,4 +1,4 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 import java.sql.Date;
 

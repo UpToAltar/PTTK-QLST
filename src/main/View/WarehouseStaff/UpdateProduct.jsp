@@ -65,6 +65,28 @@
             text-align: left;
             min-width: 120px;
         }
+        td:nth-child(3) {
+            min-width: 200px;
+        }
+        textarea {
+            width: calc(100% - 16px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+            box-sizing: border-box;
+            resize: vertical;
+            min-height: 60px;
+            font-family: Arial, sans-serif;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
         th {
             background-color: #f2f2f2;
             font-weight: bold;
@@ -119,7 +141,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="ManageProduct.jsp" class="btn back-btn">← Quay lại</a>
+        <a href="<%= request.getContextPath() %>/WarehouseStaff/ManageProduct.jsp" class="btn back-btn">← Quay lại</a>
         
         <h1>Sửa thông tin mặt hàng</h1>
         
@@ -130,15 +152,15 @@
         </c:if>
         
         <div class="search-section">
-            <form action="product-servlet" method="get" style="flex: 1;">
+            <form action="<%= request.getContextPath() %>/product-servlet" method="get" style="flex: 1;">
                 <input type="hidden" name="action" value="search">
                 <input type="text" name="searchName" placeholder="Nhập tên sản phẩm cần tìm kiếm..." class="search-input" 
                        value="${searchName}" onkeypress="if(event.key==='Enter') this.form.submit()">
             </form>
         </div>
         
-        <form action="product-servlet" method="post" id="updateForm">
-            <table>
+        <form action="<%= request.getContextPath() %>/product-servlet" method="post" id="updateForm">
+            <table name="tblProduct">
                 <thead>
                     <tr>
                         <th>Mã sản phẩm</th>
@@ -159,19 +181,28 @@
                                 <input type="text" name="productCode" value="${product.code}" required>
                             </td>
                             <td><input type="text" name="productName" value="${product.name}" required></td>
-                            <td><input type="text" name="productDescription" value="${product.description}"></td>
+                            <td><textarea name="productDescription" rows="3">${product.description}</textarea></td>
                             <td>
                                 <input type="text" 
                                     name="productImportPrice" 
-                                    value="<fmt:formatNumber value='${product.importPrice}' type='number' minFractionDigits='2' />" 
+                                    value="<fmt:formatNumber value='${product.importPrice}' type='number' maxFractionDigits='0' />" 
                                     required>
                             </td>
 
-                            <td><input type="text" name="productUnit" value="${product.unit}" required></td>
+                            <td>
+                                <select name="productUnit" required>
+                                    <option value="Cái" ${product.unit == 'Cái' ? 'selected' : ''}>Cái</option>
+                                    <option value="Hộp" ${product.unit == 'Hộp' ? 'selected' : ''}>Hộp</option>
+                                    <option value="Thùng" ${product.unit == 'Thùng' ? 'selected' : ''}>Thùng</option>
+                                    <option value="Gói" ${product.unit == 'Gói' ? 'selected' : ''}>Gói</option>
+                                    <option value="Chiếc" ${product.unit == 'Chiếc' ? 'selected' : ''}>Chiếc</option>
+                                    <option value="Bộ" ${product.unit == 'Bộ' ? 'selected' : ''}>Bộ</option>
+                                </select>
+                            </td>
                             <td>
                                 <input type="text" 
                                     name="productSalePrice" 
-                                    value="<fmt:formatNumber value='${product.salePrice}' type='number' minFractionDigits='2' />" 
+                                    value="<fmt:formatNumber value='${product.salePrice}' type='number' maxFractionDigits='0' />" 
                                     required>
                             </td>
 

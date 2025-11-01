@@ -1,10 +1,11 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 public class CartDetail {
     private String id;
     private int quantity;
     private String tblCartId;
     private String tblProductId;
+    private Product product;
 
     public CartDetail() {
     }
@@ -46,6 +47,14 @@ public class CartDetail {
 
     public void setTblProductId(String tblProductId) {
         this.tblProductId = tblProductId;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
 

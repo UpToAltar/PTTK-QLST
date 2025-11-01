@@ -76,11 +76,11 @@
 </head>
 <body>
     <div class="container">
-        <a href="Main.jsp" class="btn back-btn">← Quay lại</a>
+        <a href="<%= request.getContextPath() %>/Base/Main.jsp" class="btn back-btn" name="btnBack">← Quay lại</a>
         
         <h1>Quản lý mặt hàng</h1>
         
-        <form action="product-servlet" method="get">
+        <form action="<%= request.getContextPath() %>/product-servlet" method="get">
             <input type="submit" name="btnUpdateProduct" value="Sửa thông tin mặt hàng" class="btn btn-update">
         </form>
         

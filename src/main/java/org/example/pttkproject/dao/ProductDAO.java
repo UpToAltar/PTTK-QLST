@@ -1,6 +1,6 @@
-package org.example.pttkproject.dao;
+package org.example.pttkproject.DAO;
 
-import org.example.pttkproject.model.Product;
+import org.example.pttkproject.Model.Product;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,9 +27,9 @@ public class ProductDAO extends DAO {
                 product.setCode(rs.getString("code"));
                 product.setName(rs.getString("name"));
                 product.setDescription(rs.getString("description"));
-                product.setImportPrice(rs.getFloat("importPrice"));
+                product.setImportPrice(rs.getDouble("importPrice"));
                 product.setUnit(rs.getString("unit"));
-                product.setSalePrice(rs.getFloat("salePrice"));
+                product.setSalePrice(rs.getDouble("salePrice"));
                 product.setQuantity(rs.getInt("quantity"));
                 product.setCategory(rs.getString("category"));
                 products.add(product);
@@ -55,9 +55,9 @@ public class ProductDAO extends DAO {
                     product.setCode(rs.getString("code"));
                     product.setName(rs.getString("name"));
                     product.setDescription(rs.getString("description"));
-                    product.setImportPrice(rs.getFloat("importPrice"));
+                    product.setImportPrice(rs.getDouble("importPrice"));
                     product.setUnit(rs.getString("unit"));
-                    product.setSalePrice(rs.getFloat("salePrice"));
+                    product.setSalePrice(rs.getDouble("salePrice"));
                     product.setQuantity(rs.getInt("quantity"));
                     product.setCategory(rs.getString("category"));
                     products.add(product);
@@ -68,6 +68,34 @@ public class ProductDAO extends DAO {
         }
         
         return products.toArray(new Product[0]);
+    }
+
+    public Product getProductById(String id) {
+        Product product = null;
+        String sql = "SELECT * FROM tblProduct WHERE id = ?";
+        
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, id);
+            
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    product = new Product();
+                    product.setId(rs.getString("id"));
+                    product.setCode(rs.getString("code"));
+                    product.setName(rs.getString("name"));
+                    product.setDescription(rs.getString("description"));
+                    product.setImportPrice(rs.getDouble("importPrice"));
+                    product.setUnit(rs.getString("unit"));
+                    product.setSalePrice(rs.getDouble("salePrice"));
+                    product.setQuantity(rs.getInt("quantity"));
+                    product.setCategory(rs.getString("category"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return product;
     }
 
     public String updateProducts(Product[] listProducts) {
@@ -105,9 +133,9 @@ public class ProductDAO extends DAO {
                 ps.setString(1, product.getCode());
                 ps.setString(2, product.getName());
                 ps.setString(3, product.getDescription());
-                ps.setFloat(4, product.getImportPrice());
+                ps.setDouble(4, product.getImportPrice());
                 ps.setString(5, product.getUnit());
-                ps.setFloat(6, product.getSalePrice());
+                ps.setDouble(6, product.getSalePrice());
                 ps.setInt(7, product.getQuantity());
                 ps.setString(8, product.getCategory());
                 ps.setString(9, product.getId());

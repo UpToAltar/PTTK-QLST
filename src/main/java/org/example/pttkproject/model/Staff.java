@@ -1,23 +1,33 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
-public class Staff {
+import java.sql.Date;
+
+public class Staff extends User {
     private String id;
     private String position;
-    private String tblUserId;
 
     public Staff() {
+        super();
     }
 
-    public Staff(String id, String position, String tblUserId) {
+    public Staff(String id, String position) {
+        super();
         this.id = id;
         this.position = position;
-        this.tblUserId = tblUserId;
     }
 
+    public Staff(String id, String position, String userId, String fullName, String userName, String password, Date birthDay, String address, String email, String phone, String role, String note) {
+        super(userId, fullName, userName, password, birthDay, address, email, phone, role, note);
+        this.id = id;
+        this.position = position;
+    }
+
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public void setId(String id) {
         this.id = id;
     }
@@ -30,11 +40,11 @@ public class Staff {
         this.position = position;
     }
 
-    public String getTblUserId() {
-        return tblUserId;
+    public String getUserId() {
+        return super.getId();
     }
 
-    public void setTblUserId(String tblUserId) {
-        this.tblUserId = tblUserId;
+    public void setUserId(String userId) {
+        super.setId(userId);
     }
 }

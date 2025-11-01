@@ -5,12 +5,12 @@
          version="6.0">
     
     <welcome-file-list>
-        <welcome-file>Main.jsp</welcome-file>
+        <welcome-file>Base/Login.jsp</welcome-file>
     </welcome-file-list>
     
     <servlet>
         <servlet-name>ProductServlet</servlet-name>
-        <servlet-class>org.example.pttkproject.servlet.ProductServlet</servlet-class>
+        <servlet-class>org.example.pttkproject.Servlet.ProductServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>

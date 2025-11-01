@@ -1,30 +1,47 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
-public class Customer {
+import java.sql.Date;
+
+public class Customer extends User {
     private String id;
-    private String tblUserId;
 
     public Customer() {
+        super();
     }
 
-    public Customer(String id, String tblUserId) {
+    public Customer(String id) {
+        super();
         this.id = id;
-        this.tblUserId = tblUserId;
     }
 
+    public Customer(String id, String userId, String fullName, String userName, String password, Date birthDay, String address, String email, String phone, String role, String note) {
+        super(userId, fullName, userName, password, birthDay, address, email, phone, role, note);
+        this.id = id;
+    }
+
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public void setId(String id) {
         this.id = id;
     }
 
+    public String getUserId() {
+        return super.getId();
+    }
+
+    public void setUserId(String userId) {
+        super.setId(userId);
+    }
+
     public String getTblUserId() {
-        return tblUserId;
+        return getUserId();
     }
 
     public void setTblUserId(String tblUserId) {
-        this.tblUserId = tblUserId;
+        setUserId(tblUserId);
     }
 }

@@ -1,16 +1,16 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 public class OnlineOrderDetail {
     private String id;
     private int quantity;
-    private float salePrice;
+    private double salePrice;
     private String tblOnlineOrderId;
     private String tblProductId;
 
     public OnlineOrderDetail() {
     }
 
-    public OnlineOrderDetail(String id, int quantity, float salePrice, String tblOnlineOrderId, String tblProductId) {
+    public OnlineOrderDetail(String id, int quantity, double salePrice, String tblOnlineOrderId, String tblProductId) {
         this.id = id;
         this.quantity = quantity;
         this.salePrice = salePrice;
@@ -34,11 +34,11 @@ public class OnlineOrderDetail {
         this.quantity = quantity;
     }
 
-    public float getSalePrice() {
+    public double getSalePrice() {
         return salePrice;
     }
 
-    public void setSalePrice(float salePrice) {
+    public void setSalePrice(double salePrice) {
         this.salePrice = salePrice;
     }
 

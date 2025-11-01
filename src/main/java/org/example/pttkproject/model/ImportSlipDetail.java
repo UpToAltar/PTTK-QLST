@@ -1,16 +1,16 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 public class ImportSlipDetail {
     private String id;
     private int quantity;
-    private float price;
+    private double price;
     private String tblImportSlipId;
     private String tblProductId;
 
     public ImportSlipDetail() {
     }
 
-    public ImportSlipDetail(String id, int quantity, float price, String tblImportSlipId, String tblProductId) {
+    public ImportSlipDetail(String id, int quantity, double price, String tblImportSlipId, String tblProductId) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
@@ -34,11 +34,11 @@ public class ImportSlipDetail {
         this.quantity = quantity;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

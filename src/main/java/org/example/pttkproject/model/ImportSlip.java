@@ -1,18 +1,18 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
 
 import java.sql.Date;
 
 public class ImportSlip {
     private String id;
     private Date date;
-    private float totalPrice;
+    private double totalPrice;
     private String tblSupplierId;
     private String tblWarehouseStaffId;
 
     public ImportSlip() {
     }
 
-    public ImportSlip(String id, Date date, float totalPrice, String tblSupplierId, String tblWarehouseStaffId) {
+    public ImportSlip(String id, Date date, double totalPrice, String tblSupplierId, String tblWarehouseStaffId) {
         this.id = id;
         this.date = date;
         this.totalPrice = totalPrice;
@@ -36,11 +36,11 @@ public class ImportSlip {
         this.date = date;
     }
 
-    public float getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 

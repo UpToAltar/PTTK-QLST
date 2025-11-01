@@ -1,17 +1,23 @@
-package org.example.pttkproject.model;
+package org.example.pttkproject.Model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cart {
     private String id;
-    private float totalPrice;
+    private double totalPrice;
     private String tblCustomerId;
+    private List<CartDetail> listCartDetail;
 
     public Cart() {
+        this.listCartDetail = new ArrayList<>();
     }
 
-    public Cart(String id, float totalPrice, String tblCustomerId) {
+    public Cart(String id, double totalPrice, String tblCustomerId) {
         this.id = id;
         this.totalPrice = totalPrice;
         this.tblCustomerId = tblCustomerId;
+        this.listCartDetail = new ArrayList<>();
     }
 
     public String getId() {
@@ -22,11 +28,11 @@ public class Cart {
         this.id = id;
     }
 
-    public float getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -36,6 +42,14 @@ public class Cart {
 
     public void setTblCustomerId(String tblCustomerId) {
         this.tblCustomerId = tblCustomerId;
+    }
+
+    public List<CartDetail> getListCartDetail() {
+        return listCartDetail;
+    }
+
+    public void setListCartDetail(List<CartDetail> listCartDetail) {
+        this.listCartDetail = listCartDetail;
     }
 }
 
